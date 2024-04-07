@@ -1,0 +1,218 @@
+@import "https://fonts.fontstorage.com/import/montserrat.css";
+@import "https://fonts.fontstorage.com/import/playfairdisplay.css";
+
+
+*{
+    margin: 0;
+    box-sizing: border-box;
+    cursor: default;
+}
+
+:root{
+    --main-bg-color: rgb(215,218,221);
+    --button-bg-color: rgb(169,192,197);
+    --button-bg-hover-color: rgb(157, 177, 181);
+    --text-color: rgb(51,51,51);
+    --card-img-height: 15vw; 
+    --card-img-width: 20vw; 
+    --font-size-paragraph: 2vw;
+}
+
+body{
+    background: var(--main-bg-color);
+}
+
+.wrapper{
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+}
+
+.header, .footer{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    gap: clamp(.625rem, 4vw, 1.5rem);
+    padding: 0 2vw 0 2vw;
+    font-size: clamp(.875rem, 4vw, 1.5rem);
+    font-family: 'Montserrat';
+    color: var(--text-color);
+    border-bottom: 2px solid var(--text-color);
+}
+
+.header__logo, .footer__logo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(.625rem, 4vw, 1.5rem);
+}
+
+.header__contact, .footer__contact{
+    margin: 0 0 0 auto;
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    font-family: 'Playfair Display';
+    font-size: clamp(.75rem, var(--font-size-paragraph), 1.25rem);
+    background-color: var(--button-bg-color);
+    padding: .5em;
+    border-radius: 10px;
+}
+
+.header__contact:hover, .footer__contact:hover{
+    transition: 200ms ease-out;
+    background-color: var(--button-bg-hover-color);
+} 
+
+.contact__form{ 
+    margin: auto;
+    width: 60%;
+    height: 80%;
+    background-color: white;
+    opacity: 1;
+}
+
+.contact__iframe{
+    display: flex;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.contact__close{
+    margin: min(1vw, 1vh) auto 0  min(1vw, 1vh);
+    transition: 200ms;
+    font-size: 2em!important;
+}
+
+.contact__close:hover{
+    color: rgb(255, 0, 0, .8);
+}
+
+.footer{
+    margin-top: 10px;
+    border-bottom: 0;
+    border-top: 2px solid var(--text-color);
+    padding: min(1.5vw, 1.5vh) 0;
+    justify-content: center;
+}
+
+.main__logo{
+    height: clamp(3rem, min(8vw, 8vh), 5rem);
+    width: clamp(2.5rem, min(6vw, 6vh), 4rem);
+}
+
+.cards{
+    display: flex;
+    flex-direction: row;
+    margin: 2vw auto 2vw auto;
+    flex-wrap: wrap;
+    width: 85%;
+    justify-content: center;
+    gap: clamp(.625rem, 2.5vw, 1.5rem);
+}
+
+.card{
+    display: flex;
+    background-color: white;
+    padding: 20px;
+    flex-direction: column;
+    gap: clamp(.625rem, 4vw, 1.5rem);
+    border-radius: 4%;
+    border: 2px var(--button-bg-color) solid;
+    flex-basis: 10px;
+    color: var(--text-color);
+}
+
+.card__img{
+    height: clamp(4rem, var(--card-img-height), 250px);
+    width: clamp(5rem, var(--card-img-width), 300px);
+}
+
+.card__title{
+    text-transform: capitalize;
+    margin-right: auto;
+    font-weight: 500;
+    font-family: 'Playfair Display';
+    font-size: clamp(1rem, var(--font-size-paragraph), 2.5rem);
+}
+
+.card__text{
+    font-size: clamp(1rem, calc(var(--font-size-paragraph) / 1.5), 2rem);
+}
+
+.card__link{
+    margin: auto auto 0 auto;
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    font-family: 'Playfair Display';
+    font-size: clamp(.75rem, var(--font-size-paragraph), 1.25rem);
+    background-color: var(--button-bg-color);
+    padding: .5em;
+    border-radius: 10px;
+}
+
+.card__link:hover{
+    transition: 200ms ease-out;
+    background-color: var(--button-bg-hover-color);
+}
+
+.hero__section{
+    display: flex;
+    width: 100%;
+    background-color: aliceblue;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: min(5vh,4vw);
+    gap: clamp(.25rem, min(12vh, 10vw), 6rem);
+}
+
+.hero__header{
+    display: flex;
+    flex-direction: column;
+    gap: clamp(.25rem, min(10vw, 12vh), 6rem);
+    flex-basis: 30%;
+    font-family: 'Montserrat';
+    color: var(--text-color);
+}
+
+.hero__img{
+    flex-basis: 50%;
+    width: clamp(5rem, calc(var(--card-img-width)*2), 600px);
+    aspect-ratio: 9 16;
+    border-radius: 10px;
+}
+
+@media (max-width: 768px) {
+    .hero__section{
+        flex-direction: column;
+        gap: clamp(.25rem, min(6vh, 5vw), 6rem);
+        justify-content: space-evenly;
+    }
+
+    .hero__header{
+        flex-basis: 0;
+        gap: clamp(.25rem, min(6vh, 5vw), 6rem);
+    }
+
+    .hero__img{
+        height: clamp(150px, max(10vh, 15vw), 300px);
+        width: clamp(250px, 75%, 400px);
+    }
+}
+
+.hero__h2{
+    font-size: clamp(1rem, calc(var(--font-size-paragraph) * 2), 3rem);
+}
+
+.hero__paragraph{
+    font-size: clamp(.75rem, var(--font-size-paragraph), 1.25rem);
+}
+
+
+
